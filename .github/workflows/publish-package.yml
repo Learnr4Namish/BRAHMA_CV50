@@ -2,12 +2,12 @@ name: Publish Container to GitHub Packages
 
 on:
   release:
-    types: [published] # Triggers automatically when you publish a GitHub release
+    types: [published]
+  workflow_dispatch: # <--- Add this line
 
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
